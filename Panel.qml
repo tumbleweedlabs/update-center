@@ -166,6 +166,7 @@ Panel {
     // Pass the complete script as one argument: an inner `bash -lc` would
     // otherwise receive only `omarchy` and silently skip the `update` action.
     bar.run("omarchy-launch-floating-terminal-with-presentation " + shellQuote(completedCommand))
+    root.close()
   }
 
   // Flatpak is optional in Omarchy. Treat a missing executable as a skipped
@@ -218,6 +219,7 @@ Panel {
       + " && date +%s%N > " + shellQuote(lastUpdatePath)
       + " && omarchy system shutdown"
     bar.run("omarchy-launch-floating-terminal-with-presentation " + shellQuote(command))
+    root.close()
   }
 
   function shutdownAnyway() {
